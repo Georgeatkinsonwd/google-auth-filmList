@@ -2,7 +2,6 @@ const Films = require('../models/Films')
 
 module.exports = {
     getFilms: async (req,res)=>{
-        console.log(req.user)
         try {
             const filmItems = await Films.find({googleID:req.user.googleID})
             res.render('films.ejs',{films: filmItems,user: req.user})
@@ -13,7 +12,7 @@ module.exports = {
     },
     createFilm: async(req,res)=>{
         try {
-            await Films.create({filmName: req.body.filmItem, googleID: req.user.googleID})
+            await Films.create({filmName: req.body.filmItem,completed:false, googleID: req.user.googleID})
             console.log('film added')
             res.redirect('/films')
         } catch (error) {
@@ -21,7 +20,6 @@ module.exports = {
         }
     },
     deleteFilm: async(req,res)=>{
-        console.log(req.body.filmId)
         try {
             await Films.findOneAndDelete({_id:req.body.filmId})
             console.log('Delete Film')
@@ -29,5 +27,28 @@ module.exports = {
         } catch (err) {
             console.log(err)
         }
+    },
+    markWatched: async(req,res)=>{
+        try {
+            await Films.findOneAndUpdate({_id:req.body.filmId},{
+                completed:true
+            })
+            console.log('Marked Complete')
+            res.json('Marked Complete')
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    markUnwatched: async(req,res)=>{
+        try {
+            await Films.findOneAndUpdate({_id:req.body.filmId},{
+                completed:false
+            })
+            console.log('Marked not complete')
+            res.json('Marked not Complete')
+        } catch(error) {
+            console.log(error)
+        }
     }
+    
 }

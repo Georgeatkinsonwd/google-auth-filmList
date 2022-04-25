@@ -8,6 +8,10 @@ const FilmsSchema = new mongoose.Schema({
     googleID:{
         type: String,
         required: true,
+    },
+    completed:{
+        type:Boolean,
+        required:true,
     }
 })
 
