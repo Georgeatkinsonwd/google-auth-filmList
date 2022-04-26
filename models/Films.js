@@ -12,6 +12,10 @@ const FilmsSchema = new mongoose.Schema({
     completed:{
         type:Boolean,
         required:true,
+    },
+    image:{
+        type:String,
+        required:false,
     }
 })
 

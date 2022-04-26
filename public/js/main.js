@@ -1,6 +1,7 @@
 const deleteBtn = document.querySelectorAll('.del')
 const filmWatchedArray = document.querySelectorAll('span.not')
 const filmsUnwatchedArray = document.querySelectorAll('span.completed')
+document.querySelector('.imageTest').addEventListener('click',filmImage)
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click',deleteFilm)
@@ -37,7 +38,6 @@ async function deleteFilm(){
 
 async function filmWatched(){
     const filmId = this.parentNode.dataset.id
-    console.log('click event working')
     try {
         const response = await fetch('films/markWatched',{
             method:'put',
@@ -67,6 +67,24 @@ async function filmUnwatched(){
         const data = response.json()
         console.log(data)
         location.reload()
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+
+
+
+
+
+
+
+async function filmImage(){
+    try {
+        const response = await fetch('https://imdb-api.com/en/API/SearchMovie/k_91k1mh3e/inception')
+        const data = await response.json()
+        console.log(data.results[0].image)
     } catch (error) {
         console.log(error)
     }
