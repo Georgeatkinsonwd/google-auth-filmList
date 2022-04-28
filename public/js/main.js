@@ -1,7 +1,6 @@
 const deleteBtn = document.querySelectorAll('.del')
 const filmWatchedArray = document.querySelectorAll('span.not')
 const filmsUnwatchedArray = document.querySelectorAll('span.completed')
-document.querySelector('.imageTest').addEventListener('click',filmImage)
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click',deleteFilm)
@@ -72,20 +71,3 @@ async function filmUnwatched(){
     }
 }
 
-
-
-
-
-
-
-
-
-async function filmImage(){
-    try {
-        const response = await fetch('https://imdb-api.com/en/API/SearchMovie/k_91k1mh3e/inception')
-        const data = await response.json()
-        console.log(data.results[0].image)
-    } catch (error) {
-        console.log(error)
-    }
-}

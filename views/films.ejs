@@ -16,14 +16,14 @@
         <% films.forEach( el => { %>
                 <li class='filmList' data-id='<%=el._id%>'>
                     <span class='<%= el.completed === true ? 'completed' : 'not'%>'>Name:<%= el.filmName %></span>
+                    <img class="filmPic" src="<%= el.filmImg %>">
                     <span class='del'><i class='fa-solid fa-trash-can'></i></span>
                 </li>
         <% }) %>    
         </ul>
-    
-    <button class="imageTest">click me</button>
+        
     <form action="/films/createFilm" method="POST">
-        <input class="titleName" type="text" placeholder="add film" name="filmItem">
+        <input class="titleName" type="text" placeholder="add film" name="filmTitle">
         <input class="submitBtn" type="submit">
     </form>
 

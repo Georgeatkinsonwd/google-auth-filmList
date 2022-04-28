@@ -13,7 +13,7 @@ const FilmsSchema = new mongoose.Schema({
         type:Boolean,
         required:true,
     },
-    image:{
+    filmImg:{
         type:String,
         required:false,
     }

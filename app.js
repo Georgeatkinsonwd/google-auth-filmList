@@ -9,6 +9,7 @@ const dotenv = require('dotenv')
 const homeRoutes = require('./routes/home')
 const filmRoutes = require('./routes/films')
 const authRoutes = require('./routes/auth')
+const fetch = require('node-fetch')
 
 
 dotenv.config({path: './config/config.env'})

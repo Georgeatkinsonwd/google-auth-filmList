@@ -1,4 +1,6 @@
 const Films = require('../models/Films')
+const fetch = require('node-fetch')
+
 
 module.exports = {
     getFilms: async (req,res)=>{
@@ -12,7 +14,13 @@ module.exports = {
     },
     createFilm: async(req,res)=>{
         try {
-            await Films.create({filmName: req.body.filmItem,completed:false, googleID: req.user.googleID})
+            const title = req.body.filmTitle
+            const response = await fetch(`https://imdb-api.com/en/API/SearchMovie/k_91k1mh3e/${title}`)
+            const data = await response.json()
+            const filmImg = data.results[0].image
+            const filmName = data.results[0].title
+            console.log(filmImg)
+            await Films.create({filmName: filmName,completed:false, googleID: req.user.googleID, filmImg: filmImg})
             console.log('film added')
             res.redirect('/films')
         } catch (error) {
