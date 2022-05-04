@@ -1,18 +1,48 @@
+
+body{
+    background-color: #14181C;
+}
+
 h1 {
-    color:red;
+    color:#EBEEF0;
     margin:0;
     text-align:center;
 }
+
+
 
 
 h2{
     margin:0;
     text-align:center;
+    color:#EBEEF0;
+}
+
+.logout{
+    margin:0;
+    text-align:center;
+    font-size:26px;
+    color: #EBEEF0;
+}
+
+.logoutLink:visited{
+    color:#EBEEF0;
+}
+
+.logoutLink:hover{
+    color:orange;
 }
 
 form {
     padding:10px;
 }
+
+ul{
+    list-style-type:none;
+    display:flex;
+    flex-wrap:wrap;
+}
+
 
 .completed {
     text-decoration: line-through;
@@ -27,4 +57,9 @@ form {
 .filmPic{
     width:200px;
     height:300px;
+}
+
+.searchFilm{
+margin:0;
+text-align:center;
 }

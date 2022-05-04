@@ -11,24 +11,28 @@
 <body>
     <h1>Film Homepage</h1>
     <h2><%= user.displayName %>'s Film List</h2>
+    <div class="logout">
+    <a class="logoutLink" href="/auth/logout">Logout</a>
+    </div>
 
-    <ul>
-        <% films.forEach( el => { %>
-                <li class='filmList' data-id='<%=el._id%>'>
-                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'>Name:<%= el.filmName %></span>
-                    <img class="filmPic" src="<%= el.filmImg %>">
-                    <span class='del'><i class='fa-solid fa-trash-can'></i></span>
-                </li>
-        <% }) %>    
-        </ul>
-        
-    <form action="/films/createFilm" method="POST">
+
+    <form class="searchFilm" action="/films/createFilm" method="POST">
         <input class="titleName" type="text" placeholder="add film" name="filmTitle">
         <input class="submitBtn" type="submit">
     </form>
 
 
-    <a class="logout" href="/auth/logout">Logout</a>
+
+    <ul>
+        <% films.forEach( el => { %>
+                <li class='filmList' data-id='<%=el._id%>'>
+                    <img class="filmPic <%= el.completed === true ? 'completed' : 'not'%>'" src="<%= el.filmImg %>">
+                    <span class='del'><i class='fa-solid fa-trash-can'></i></span>
+                </li>
+        <% }) %>    
+        </ul>
+        
+   
 
 
 

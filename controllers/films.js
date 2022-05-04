@@ -19,12 +19,12 @@ module.exports = {
             const data = await response.json()
             const filmImg = data.results[0].image
             const filmName = data.results[0].title
-            console.log(filmImg)
             await Films.create({filmName: filmName,completed:false, googleID: req.user.googleID, filmImg: filmImg})
             console.log('film added')
             res.redirect('/films')
         } catch (error) {
             console.log(error)
+            res.render('Film does not exist')
         }
     },
     deleteFilm: async(req,res)=>{
