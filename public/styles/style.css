@@ -10,8 +10,6 @@ h1 {
 }
 
 
-
-
 h2{
     margin:0;
     text-align:center;
@@ -62,4 +60,14 @@ ul{
 .searchFilm{
 margin:0;
 text-align:center;
+}
+
+
+.fa-trash-can{
+    color: #EBEEF0;
+}
+
+.del{
+    display:block;
+    text-align:center;
 }

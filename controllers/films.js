@@ -24,7 +24,7 @@ module.exports = {
             res.redirect('/films')
         } catch (error) {
             console.log(error)
-            res.render('Film does not exist')
+            res.render('404.ejs')
         }
     },
     deleteFilm: async(req,res)=>{

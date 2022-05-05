@@ -26,8 +26,10 @@
     <ul>
         <% films.forEach( el => { %>
                 <li class='filmList' data-id='<%=el._id%>'>
+                    <div class="filmBlock">
                     <img class="filmPic <%= el.completed === true ? 'completed' : 'not'%>'" src="<%= el.filmImg %>">
                     <span class='del'><i class='fa-solid fa-trash-can'></i></span>
+                    </div>
                 </li>
         <% }) %>    
         </ul>
