@@ -1,6 +1,6 @@
 const deleteBtn = document.querySelectorAll('.del')
-const filmWatchedArray = document.querySelectorAll('span.not')
-const filmsUnwatchedArray = document.querySelectorAll('span.completed')
+const filmWatchedArray = document.querySelectorAll('img.not img.filmPic')
+const filmsUnwatchedArray = document.querySelectorAll('img.completed')
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click',deleteFilm)
@@ -16,7 +16,7 @@ Array.from(filmsUnwatchedArray).forEach((el)=>{
 
 
 async function deleteFilm(){
-    const filmId = this.parentNode.dataset.id
+    const filmId = this.parentNode.parentNode.dataset.id
     try{
         const response = await fetch('films/deleteFilm',{
             method:'delete',
@@ -36,8 +36,10 @@ async function deleteFilm(){
 
 
 async function filmWatched(){
+    console.log('click event working')
     const filmId = this.parentNode.dataset.id
     try {
+        document.querySelector('.watchedList').appendChild(document.querySelector(filmId))
         const response = await fetch('films/markWatched',{
             method:'put',
             headers:{'Content-type': 'application/json'},
@@ -54,6 +56,7 @@ async function filmWatched(){
 }
 
 async function filmUnwatched(){
+    console.log('test')
     const filmId = this.parentNode.dataset.id
     try {
         const response = await fetch('films/markUnwatched',{

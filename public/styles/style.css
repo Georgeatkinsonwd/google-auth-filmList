@@ -3,17 +3,10 @@ body{
     background-color: #14181C;
 }
 
-h1 {
+h1, h2 {
     color:#EBEEF0;
     margin:0;
     text-align:center;
-}
-
-
-h2{
-    margin:0;
-    text-align:center;
-    color:#EBEEF0;
 }
 
 .logout{
@@ -34,6 +27,14 @@ h2{
 form {
     padding:10px;
 }
+
+
+.toWatch h3, .watched h3 {
+    color:#EBEEF0;
+    text-align:center;
+    text-decoration: underline;
+}
+
 
 ul{
     list-style-type:none;
@@ -70,4 +71,8 @@ text-align:center;
 .del{
     display:block;
     text-align:center;
+}
+
+.filmList{
+    padding:3px;
 }
