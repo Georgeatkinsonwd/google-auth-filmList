@@ -30,7 +30,7 @@ module.exports = {
     deleteFilm: async(req,res)=>{
         try {
             await Films.findOneAndDelete({_id:req.body.filmId})
-            console.log('Delete Film')
+            console.log('Deleted Film')
             res.json('Deleted It')
         } catch (err) {
             console.log(err)
