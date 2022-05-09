@@ -27,8 +27,8 @@
     <ul>
         <% films.forEach( el => { %>
                 <li class='filmList' data-id='<%=el._id%>'>
-                    <div class="filmBlock">
-                    <img class="filmPic <%= el.completed === true ? 'completed' : 'not'%>'" src="<%= el.filmImg %>">
+                    <div class="filmBlock <%= el.completed === true ? 'completed' : 'not'%>">
+                    <img class="filmPic" src="<%= el.filmImg %>">
                     <span class='del'><i class='fa-solid fa-trash-can'></i></span>
                     </div>
                 </li>
@@ -39,10 +39,19 @@
 </div>
 <div class="watched">
     <h3>Watched</h3>
-</div>
+
     <ul class="watchedList">
+        <% films.forEach( el => { %>
+             <li class='filmList' data-id='<%=el._id%>'>
+              <div class="filmBlock <%= el.completed === true ? 'showFilm' : 'completed'%>">
+                <img class="filmPic" src="<%= el.filmImg %>">
+                <span class='del'><i class='fa-solid fa-trash-can'></i></span>
+                </div>
+            </li>
         
+       <% }) %>
     </ul>
+    </div>
     <script src="js/main.js"></script>
 </body>
 </html>
