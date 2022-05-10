@@ -45,6 +45,6 @@ app.use('/films',filmRoutes)
 app.use('/auth',authRoutes)
 
 
-app.listen(process.env.PORT,()=>{
+app.listen(process.env.PORT || PORT,()=>{
     console.log(`server running on server:${process.env.PORT}`)
 })
