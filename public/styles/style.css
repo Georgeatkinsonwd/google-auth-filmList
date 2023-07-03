@@ -7,7 +7,13 @@ h1, h2 {
     color:#EBEEF0;
     margin:0;
     text-align:center;
+    font-size:50px;
 }
+
+h3 {
+    font-size:35px;
+}
+
 
 .logout{
     margin:0;
@@ -53,8 +59,8 @@ ul{
 }
 
 .filmPic{
-    width:200px;
-    height:300px;
+    width:300px;
+    height:400px;
 }
 
 .searchFilm{
@@ -74,4 +80,16 @@ text-align:center;
 
 .filmList{
     padding:3px;
+}
+
+
+@media screen and (max-width :400px) {
+    body{
+        background-color:aqua;
+    }
+    .filmPic{
+        width:100px;
+        height:150px;
+    }
+    
 }
