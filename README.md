@@ -1,3 +1,5 @@
+A Fullstack App with CRUD functions. Users can log in with google and create their own Film watch/seen list using the IMDB API. 
+
 Screenshots from App before IMDB / Heroku changes
 
 
